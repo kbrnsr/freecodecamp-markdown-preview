@@ -3,13 +3,16 @@ import { screen, render } from '@testing-library/react';
 import MarkdownPreview from './MarkdownPreview';
 import constants from '../constants';
 
-const { mpWrapper } = constants;
+const { mpWrapper, mpEditorBox } = constants;
 
-test('component existence', () => {
+beforeEach(() => {
   render(<MarkdownPreview />);
 });
 test('component wrapper existence', () => {
-  render(<MarkdownPreview />);
   const wrapperElement = screen.getByTestId(mpWrapper);
   expect(wrapperElement).toBeInTheDocument();
+});
+test('preview box existence', () => {
+  const mpEditorwBoxElement = screen.getByTestId(mpEditorBox);
+  expect(mpEditorwBoxElement).toBeInTheDocument();
 });
