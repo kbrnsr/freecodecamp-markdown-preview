@@ -1,5 +1,5 @@
 const constants = {
-  mpWrapper: 'mp-wrapper',
+  mpWrapper: 'wrapper',
 };
 
 export default constants;
