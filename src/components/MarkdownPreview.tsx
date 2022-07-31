@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import constants from '../constants';
 
 function MarkdownPreview() {
   const {
     mpWrapper, mpEditorBox, mpEditor,
-    mpPreview,
+    mpPreviewBox, mpPreview,
   } = constants;
+  const [input, setInput] = useState('');
+  const [output, setOutput] = useState('');
+
+  useEffect(() => {
+    setOutput(input);
+  }, [input]);
+
   return (
     <div data-testid={mpWrapper} id={mpWrapper}>
       <p>Markdown previewer</p>
@@ -16,12 +23,22 @@ function MarkdownPreview() {
           id={mpEditor}
           rows={6}
           cols={10}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
       </div>
       <div
-        data-testid={mpPreview}
-        id={mpPreview}
-      />
+        data-testid={mpPreviewBox}
+        id={mpPreviewBox}
+      >
+        <p>Previewer</p>
+        <div
+          data-testid={mpPreview}
+          id={mpPreview}
+        >
+          {output}
+        </div>
+      </div>
     </div>
   );
 }

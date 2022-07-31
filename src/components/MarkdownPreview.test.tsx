@@ -5,7 +5,7 @@ import constants from '../constants';
 
 const {
   mpWrapper, mpEditorBox, mpEditor,
-  mpPreview,
+  mpPreviewBox, mpPreview,
 } = constants;
 
 describe('structure tests', () => {
@@ -18,7 +18,7 @@ describe('structure tests', () => {
     expect(wrapperElement).toBeInTheDocument();
   });
 
-  test('preview box existence', () => {
+  test('editor box existence', () => {
     const mpEditorwBoxElement = screen.getByTestId(mpEditorBox);
     expect(mpEditorwBoxElement).toBeInTheDocument();
   });
@@ -28,6 +28,11 @@ describe('structure tests', () => {
     expect(mpEditorElement)
       .toHaveAttribute('data-testid', expect
         .stringContaining(mpEditor));
+  });
+
+  test('preview box existence', () => {
+    const mpPreviewBoxElement = screen.getByTestId(mpPreviewBox);
+    expect(mpPreviewBoxElement).toBeInTheDocument();
   });
 
   test('preview element existence', () => {
