@@ -1,6 +1,5 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
-import { text } from 'node:stream/consumers';
 import MarkdownPreview from './MarkdownPreview';
 import constants from '../constants';
 
