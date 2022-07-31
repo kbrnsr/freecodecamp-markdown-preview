@@ -2,7 +2,10 @@ import React from 'react';
 import constants from '../constants';
 
 function MarkdownPreview() {
-  const { mpWrapper, mpEditorBox, mpEditor } = constants;
+  const {
+    mpWrapper, mpEditorBox, mpEditor,
+    mpPreview,
+  } = constants;
   return (
     <div data-testid={mpWrapper} id={mpWrapper}>
       <p>Markdown previewer</p>
@@ -15,6 +18,10 @@ function MarkdownPreview() {
           cols={10}
         />
       </div>
+      <div
+        data-testid={mpPreview}
+        id={mpPreview}
+      />
     </div>
   );
 }

@@ -3,7 +3,10 @@ import { screen, render } from '@testing-library/react';
 import MarkdownPreview from './MarkdownPreview';
 import constants from '../constants';
 
-const { mpWrapper, mpEditorBox, mpEditor } = constants;
+const {
+  mpWrapper, mpEditorBox, mpEditor,
+  mpPreview,
+} = constants;
 
 beforeEach(() => {
   render(<MarkdownPreview />);
@@ -22,4 +25,9 @@ test('editor element existence', () => {
   expect(mpEditorElement)
     .toHaveAttribute('data-testid', expect
       .stringContaining(mpEditor));
+});
+
+test('preview element existence', () => {
+  const mpPreviewElement = screen.getByTestId(mpPreview);
+  expect(mpPreviewElement).toBeInTheDocument();
 });
