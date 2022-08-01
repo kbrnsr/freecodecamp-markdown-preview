@@ -17,8 +17,8 @@ function MarkdownPreview() {
   return (
     <div data-testid={mpWrapper} id={mpWrapper}>
       <p>Markdown previewer</p>
+      <p>Editor</p>
       <div data-testid={mpEditorBox} id={mpEditorBox}>
-        <p>Editor</p>
         <textarea
           data-testid={mpEditor}
           id={mpEditor}
@@ -36,11 +36,11 @@ function MarkdownPreview() {
 
         </button>
       </div>
+      <p>Previewer</p>
       <div
         data-testid={mpPreviewBox}
         id={mpPreviewBox}
       >
-        <p>Previewer</p>
         <div
           data-testid={mpPreview}
           id={mpPreview}
