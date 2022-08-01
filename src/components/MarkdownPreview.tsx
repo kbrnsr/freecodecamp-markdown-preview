@@ -5,9 +5,9 @@ import constants from '../constants';
 function MarkdownPreview() {
   const {
     mpWrapper, mpEditorBox, mpEditor,
-    mpPreviewBox, mpPreview,
+    mpPreviewBox, mpPreview, mpDefaultInput,
   } = constants;
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(mpDefaultInput);
 
   return (
     <div data-testid={mpWrapper} id={mpWrapper}>
@@ -32,7 +32,7 @@ function MarkdownPreview() {
           data-testid={mpPreview}
           id={mpPreview}
         >
-          <Markdown gfm value={input} />
+          <Markdown gfm breaks value={input} />
         </div>
       </div>
     </div>
