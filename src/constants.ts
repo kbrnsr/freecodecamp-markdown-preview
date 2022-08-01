@@ -18,6 +18,7 @@ const constants = {
   mpWrapper: 'wrapper',
   mpEditorBox: 'editor-box',
   mpEditor: 'editor',
+  mpEditorButton: 'Reset',
   mpPreviewBox: 'preview-box',
   mpPreview: 'preview',
   mpDefaultInput: defaultInput,

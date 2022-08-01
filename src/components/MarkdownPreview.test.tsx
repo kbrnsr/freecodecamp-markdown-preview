@@ -5,7 +5,7 @@ import MarkdownPreview from './MarkdownPreview';
 import constants from '../constants';
 
 const {
-  mpWrapper, mpEditorBox, mpEditor,
+  mpWrapper, mpEditorBox, mpEditor, mpEditorButton,
   mpPreviewBox, mpPreview,
 } = constants;
 
@@ -13,13 +13,18 @@ describe('functionality tests', () => {
   test('preview mirrors editor', async () => {
     render(<MarkdownPreview />);
     const user = userEvent.setup();
+
     const expectInput = 'What is love?';
     const expectOutput = '<p>What is love?</p>';
 
     const mpEditorElement = screen.getByRole('textbox');
+    const mpEditorButtonElement = screen
+      .getByRole('button', { name: mpEditorButton });
     const mpPreviewElement = screen.getByTestId(mpPreview);
 
+    await user.click(mpEditorButtonElement);
     await user.type(mpEditorElement, expectInput);
+
     expect(mpPreviewElement.innerHTML).toBe(expectOutput);
   });
 });
@@ -44,6 +49,12 @@ describe('structure tests', () => {
     expect(mpEditorElement)
       .toHaveAttribute('data-testid', expect
         .stringContaining(mpEditor));
+  });
+
+  test('reset editor button existence', () => {
+    const mpEditorButtonElement = screen
+      .getByRole('button', { name: mpEditorButton });
+    expect(mpEditorButtonElement).toBeInTheDocument();
   });
 
   test('preview box existence', () => {
