@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Markdown from 'marked-react';
 import constants from '../constants';
+import './MarkdownPreview.css';
 
 function MarkdownPreview() {
   const {
@@ -15,11 +16,15 @@ function MarkdownPreview() {
   }, [input]);
 
   return (
-    <div data-testid={mpWrapper} id={mpWrapper}>
-      <p>Markdown previewer</p>
-      <div data-testid={mpEditorBox} id={mpEditorBox}>
+    <div
+      className="row"
+      data-testid={mpWrapper}
+      id={mpWrapper}
+    >
+      <div className="column" data-testid={mpEditorBox} id={mpEditorBox}>
         <p>Editor</p>
         <textarea
+          wrap="off"
           data-testid={mpEditor}
           id={mpEditor}
           rows={6}
@@ -37,6 +42,7 @@ function MarkdownPreview() {
         </button>
       </div>
       <div
+        className="column"
         data-testid={mpPreviewBox}
         id={mpPreviewBox}
       >
