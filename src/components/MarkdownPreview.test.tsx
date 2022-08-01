@@ -13,15 +13,14 @@ describe('functionality tests', () => {
   test('preview mirrors editor', async () => {
     render(<MarkdownPreview />);
     const user = userEvent.setup();
-    const testString = 'What is love?\n'
-    + '\tBaby, don\'t hurt me\n\n'
-    + 'no more';
+    const expectInput = 'What is love?';
+    const expectOutput = '<p>What is love?</p>';
 
     const mpEditorElement = screen.getByRole('textbox');
     const mpPreviewElement = screen.getByTestId(mpPreview);
 
-    await user.type(mpEditorElement, testString);
-    expect(mpPreviewElement.innerHTML).toBe(testString);
+    await user.type(mpEditorElement, expectInput);
+    expect(mpPreviewElement.innerHTML).toBe(expectOutput);
   });
 });
 
