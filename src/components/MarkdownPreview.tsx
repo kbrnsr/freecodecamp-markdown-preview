@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Markdown from 'marked-react';
 import constants from '../constants';
 
 function MarkdownPreview() {
@@ -36,7 +37,7 @@ function MarkdownPreview() {
           data-testid={mpPreview}
           id={mpPreview}
         >
-          {output}
+          <Markdown gfm value={output} />
         </div>
       </div>
     </div>
