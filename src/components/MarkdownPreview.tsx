@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Markdown from 'marked-react';
 import constants from '../constants';
 
@@ -8,11 +8,6 @@ function MarkdownPreview() {
     mpPreviewBox, mpPreview,
   } = constants;
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState('');
-
-  useEffect(() => {
-    setOutput(input);
-  }, [input]);
 
   return (
     <div data-testid={mpWrapper} id={mpWrapper}>
@@ -37,7 +32,7 @@ function MarkdownPreview() {
           data-testid={mpPreview}
           id={mpPreview}
         >
-          <Markdown gfm value={output} />
+          <Markdown gfm value={input} />
         </div>
       </div>
     </div>
